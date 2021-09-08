@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//db.onlinewebfonts.com/c/000be6a5acfcd4e4a425e9f1bb6c80f0?family=Google+Sans" rel="stylesheet"
+    type="text/css" />
+  <link href="http://fonts.cdnfonts.com/css/product-sans" rel="stylesheet">
+  <!-- <link href="http://fonts.cdnfonts.com/css/google-sans" rel="stylesheet"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Roboto:wght@100;300;500&display=swap"
+    rel="stylesheet">
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./reset.css">
+  <title>Google Meet</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="joining">
+      <span class="joining-text">Đang tham gia...</span>
+    </div>
+    <!-- Modal - START -->
+    <div class="modal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <div class="modal-header-title">
+            <span>
+              Đây là đường liên kết đến cuộc họp của bạn
+            </span>
+          </div>
+          <div class="modal-header-close">
+            <span class="material-icons">
+              close
+            </span>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-body-description">
+            <span>
+              Hãy sao chép đường liên kết này rồi gửi tới những người mà bạn muốn họp cùng. Bạn nhớ lưu lại đường liên
+              kết để có thể sử dụng sau.
+            </span>
+          </div>
+          <div class="modal-body-url">
+            <span>meet.google.com/cdd-zzyy-wfd</span>
+            <button>
+              <span class="material-icons">
+                content_copy
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal - END -->
+
+    <!-- Header - START -->
+    <div class="header">
+      <div class="header__title">
+        <a class="header__title--link" href="#">
+          <img
+            src="https://www.gstatic.com/meet/google_meet_horizontal_wordmark_2020q4_1x_icon_124_40_2373e79660dabbf194273d27aa7ee1f5.png"
+            alt="">
+          <span class="header__title--text">Meet</span>
+        </a>
+      </div>
+      <div class="header__gadgets">
+        <div class="header__gadgets--datetime">
+          <span class="header__gadgets--datetime-time">11:10</span>
+          <span class="header__gadgets--datetime-dotted"> • </span>
+          <span class="header__gadgets--datetime-day">Th 2, 30 thg 8</span>
+        </div>
+        <div class="header__gadgets--tools">
+          <div class="">
+            <a href="" class="header__gadgets--tools-tool">
+              <span class="material-icons">
+                help_outline
+              </span>
+            </a>
+          </div>
+          <div class="">
+            <a href="" class="header__gadgets--tools-tool">
+              <span class="material-icons">
+                feedback
+              </span>
+            </a>
+          </div>
+          <div class="">
+            <a href="" class="header__gadgets--tools-tool">
+              <span class="material-icons">
+                settings
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="header__end">
+        <div class="header__end--settings">
+          <a href="">
+            <!-- <ion-icon name="apps-outline" class="header__end--settings"></ion-icon> -->
+            <span class="material-icons">
+              apps
+            </span>
+          </a>
+        </div>
+        <div class="header__end--avatar">
+          <img src="https://lh3.googleusercontent.com/ogw/ADea4I6lK-n0rrqK5f95_qDF-bWyC-b6UxKWznpDOiAtFA=s32-c-mo"
+            alt="" style="border-radius: 50%;">
+        </div>
+      </div>
+    </div>
+    <!-- Header - END -->
+
+    <!-- Bidy - START -->
+    <div class="content">
+      <div class="content__left">
+        <div class="content__left--title">
+          Cuộc họp video chất lượng. Giờ đây miễn phí cho tất cả mọi người.
+        </div>
+        <div class="content__left--description">
+          Chúng tôi đã thiết kế lại Google Meet — dịch vụ tổ chức cuộc họp kinh doanh với độ bảo mật cao — để cung cấp
+          miễn phí cho mọi người.
+        </div>
+        <div class="content__left--join">
+          <button class="btn__join">
+            <span class="material-icons video-call-icon">
+              video_call
+            </span>
+            Cuộc họp mới
+          </button>
+
+          <div style="position: relative;" class="content__left--input">
+            <input type="text" name="" id="" placeholder="Nhập một mã hoặc đường liên kết" class="input__join"
+              width="265px">
+            <span class="material-icons keyboard-icon" style="">
+              keyboard
+            </span>
+            <span class="text__join">Tham gia</span>
+          </div>
+
+          <div class="pop-up-meeting hide">
+            <div class="pop-up-container">
+              <div class="pop-up-item item-icon js-create-after">
+                <span class="material-icons">
+                  insert_link
+                </span>
+                <span class="item-text">Tạo một cuộc họp để sử dụng sau</span>
+              </div>
+              <div class="pop-up-item item-icon js-create-now">
+                <span class="material-icons">
+                  add
+                </span>
+                <span class="item-text">Bắt đầu một cuộc họp tức thì</span>
+              </div>
+              <div class="pop-up-item item-icon">
+                <span class="material-icons">
+                  calendar_today
+                </span>
+                <span class="item-text">Lịch biểu trong lịch Google</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <hr style=""> -->
+        <div class="line"></div>
+        <div class="content__left--more">
+          <a href=""><span class="more">Tìm hiểu thêm</span> về Google Meet</a>
+        </div>
+      </div>
+      <div class="content__right">
+        <div class="content__right--slider">
+          <!-- Slide 1 - START -->
+          <div class="slide slide1">
+            <div class="slide-header">
+              <span class="material-icons left-icon">
+                chevron_left
+              </span>
+              <img src="https://www.gstatic.com/meet/user_edu_get_a_link_light_90698cd7b4ca04d3005c962a3756c42d.svg"
+                alt="">
+              <span class="material-icons right-icon">
+                chevron_right
+              </span>
+            </div>
+            <span class="content__right--title">Nhận đường liên kết bạn có thể chia sẻ</span>
+            <span class="content__right--description">
+              Nhấp vào
+              <strong>Cuộc họp mới</strong>
+              để nhận đường liên kết mà bạn có thể gửi cho những người mình muốn họp cùng
+            </span>
+          </div>
+          <!-- Slide 1 - END -->
+
+          <!-- Slide 2 - START -->
+          <div class="slide slide1">
+            <div class="slide-header">
+              <span class="material-icons left-icon">
+                chevron_left
+              </span>
+              <img src="https://www.gstatic.com/meet/user_edu_brady_bunch_light_81fa864771e5c1dd6c75abe020c61345.svg"
+                alt="">
+              <span class="material-icons right-icon">
+                chevron_right
+              </span>
+            </div>
+            <span class="content__right--title">Xem mọi người cùng lúc</span>
+            <span class="content__right--description">
+              Để thấy nhiều người hơn cùng một lúc, hãy chuyển tới phần Thay đổi bố cục trong trình đơn Tùy chọn khác
+            </span>
+          </div>
+          <!-- Slide 2 - END -->
+
+          <!-- Slide 3 - START -->
+          <div class="slide ">
+            <div class="slide-header">
+              <span class="material-icons left-icon">
+                chevron_left
+              </span>
+              <img src="https://www.gstatic.com/meet/user_edu_scheduling_light_b352efa017e4f8f1ffda43e847820322.svg"
+                alt="">
+              <span class="material-icons right-icon">
+                chevron_right
+              </span>
+            </div>
+            <span class="content__right--title">Lên kế hoạch trước</span>
+            <span class="content__right--description">
+              Nhấp vào
+              <strong>Cuộc họp mới</strong>
+              để lên lịch cuộc họp trong Lịch Google và gửi lời mời cho người tham gia
+            </span>
+          </div>
+          <!-- Slide 3 - END -->
+
+          <!-- Slide 4 - START -->
+          <div class="slide slide1">
+            <div class="slide-header">
+              <span class="material-icons left-icon">
+                chevron_left
+              </span>
+              <img src="https://www.gstatic.com/meet/user_edu_safety_light_e04a2bbb449524ef7e49ea36d5f25b65.svg" alt="">
+              <span class="material-icons right-icon">
+                chevron_right
+              </span>
+            </div>
+            <span class="content__right--title">Cuộc họp của bạn được bảo vệ an toàn</span>
+            <span class="content__right--description">
+              Không ai có thể tham gia cuộc họp trừ khi người tổ chức mời hoặc cho phép
+            </span>
+          </div>
+          <!-- Slide 4 - END -->
+
+          <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- Body - END -->
+  </div>
+
+
+</body>
+<script src="./index.js"></script>
+
+</html>

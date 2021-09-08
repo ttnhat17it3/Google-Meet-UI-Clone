@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//db.onlinewebfonts.com/c/000be6a5acfcd4e4a425e9f1bb6c80f0?family=Google+Sans" rel="stylesheet"
+    type="text/css" />
+  <link href="http://fonts.cdnfonts.com/css/product-sans" rel="stylesheet">
+  <!-- <link href="http://fonts.cdnfonts.com/css/google-sans" rel="stylesheet"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Roboto:wght@100;300;500&display=swap"
+    rel="stylesheet">
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./call.css">
+  <title>Google Meet</title>
+</head>
+
+<body>
+  <!-- Report problem modal - START -->
+  <div class="report-problem-modal hide">
+    <div class="report-problem-modal-container">
+      <div class="report-problem-body">
+        Nếu có sự cố với cuộc gọi của bạn, Google cần thông tin hệ thống để tìm hiểu xem đã xảy ra sự cố gì. Cho phép
+        Google thu thập thông tin về cuộc gọi này?
+      </div>
+      <div class="report-problem-footer">
+        <button class="report-problem-close-btn">Từ chối</button>
+        <button>Đồng ý</button>
+      </div>
+    </div>
+  </div>
+  <!-- Report problem modal - END -->
+
+  <!-- Settings modal - START -->
+  <div class="settings-modal hide">
+    <div class="settings-modal-container">
+      <div class="settings-tab">
+        <h1 class="settings-modal-tab-title">Cài đặt</h1>
+        <div class="settings-modal-btns">
+          <button class="tablinks" onclick="openTab(event, 'sound')" id="default-open">
+            <span class="material-icons">
+              speaker
+            </span>
+            <div class="tablinks-text">Âm thanh</div>
+          </button>
+          <button class="tablinks active" onclick="openTab(event, 'video')">
+            <span class="material-icons">
+              videocam
+            </span>
+            <div class="tablinks-text">Video</div>
+          </button>
+          <button class="tablinks" onclick="openTab(event, 'settings-general')">
+            <span class="material-icons">
+              settings
+            </span>
+            <div class="tablinks-text">Cài đặt chung</div>
+          </button>
+          <button class="tablinks" onclick="openTab(event, 'controller')">
+            <span class="material-icons">
+              toggle_on
+            </span>
+            <div class="tablinks-text">Bộ điều khiển của người tổ chức</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Âm thanh Settings - START -->
+      <div class="settings-tabcontent" id="sound">
+        <div class="settings-close">
+          <span class="material-icons settings-close-btn">close</span>
+        </div>
+        <div class="settings-option">
+          <div class="settings-option-left">
+            <span class="settings-option-text">Micrô</span>
+            <select name="" id="">
+              <option value="">Mặc định</option>
+              <option value="">Truyền thông</option>
+            </select>
+          </div>
+          <div class="settings-option-right">
+            <span class="setting-option-right-text">Micrô đang tắt</span>
+          </div>
+        </div>
+        <div class="settings-option">
+          <div class="settings-option-left">
+            <span class="settings-option-text">Loa</span>
+            <select name="" id="">
+              <option value="">Mặc định</option>
+              <option value="">Truyền thông</option>
+            </select>
+          </div>
+          <div class="settings-option-right">
+            <button class="settings-check-volume-btn">
+              <span class="material-icons">
+                volume_up
+              </span>
+              Kiểm tra
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Âm thanh Settings - END -->
+
+      <!-- Video Settings - START -->
+      <div class="settings-tabcontent hide" id="video">
+        <div class="settings-close">
+          <span class="material-icons settings-close-btn">close</span>
+        </div>
+        <div class="settings-option">
+          <div class="settings-option-left">
+            <span class="settings-option-text">Micrô</span>
+            <select name="" id="">
+              <option value="">Mặc định</option>
+              <option value="">Truyền thông</option>
+            </select>
+          </div>
+          <div class="settings-option-right">
+            <span class="setting-option-right-text">Máy ảnh đang tắt</span>
+          </div>
+        </div>
+        <div class="settings-option">
+          <div class="settings-option-left">
+            <span class="settings-option-text">Độ phân giải khi gửi (Tối đa)</span>
+            <select name="" id="">
+              <option value="">Tự động</option>
+              <option value="">Độ phân giải cao (720p)</option>
+              <option value="">Độ phân giải chuẩn (360p)</option>
+            </select>
+          </div>
+        </div>
+        <div class="settings-option">
+          <div class="settings-option-left">
+            <span class="settings-option-text">Độ phân giải khi nhận (Tối đa)</span>
+            <select name="" id="">
+              <option value="">Tự động</option>
+              <option value="">Độ phân giải cao (720p)</option>
+              <option value="">Độ phân giải chuẩn (360p)</option>
+              <option value="">Độ phân giải chuẩn (360p), một video tại một thời điểm</option>
+              <option value="">Chỉ âm thanh</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- Video Settings - END -->
+
+      <!-- Cài đặt chung - START -->
+      <div class="settings-tabcontent hide" id="settings-general">
+        <div class="settings-close">
+          <span class="material-icons settings-close-btn">close</span>
+        </div>
+        <div class="settings-general">
+          <div class="settings-gerenal-checkbox">
+            <input type="checkbox" name="" id="">
+          </div>
+          <span>Báo cáo thông tin chẩn đoán bổ sung để giúp cải tiến sản phẩm này</span>
+        </div>
+      </div>
+      <!-- Cài đặt chung - END -->
+
+      <!-- Bộ điều khiển của người tổ chức - START -->
+      <div class="settings-tabcontent hide" id="controller">
+        <div class="settings-close settings-controller">
+          <span style="font: 12px var(--robo-font)">Chỉ người tổ chức có quyền truy cập các công cụ điều khiển
+            này</span>
+          <span class="material-icons settings-close-btn">close</span>
+        </div>
+        <div class="settings-control">
+          <div class="settings-control-header">
+            ĐIỀU PHỐI CUỘC HỌP
+          </div>
+          <div class="settings-control-option">
+            <div class="option-high-level">
+              <div class="option-item">
+                <div class="option-text">
+                  <div class="option-title">
+                    Quyền quản lý của người tổ chức
+                  </div>
+                  <div class="option-description">
+                    Cho phép bạn giới hạn những việc mà người tham gia được phép làm trong cuộc họp
+                    <a href="">Tìm hiểu thêm</a>
+                  </div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+
+              <div class="option-low-level">
+                <h3>CHO PHÉP MỌI NGƯỜI</h3>
+                <div class="option-item">
+                  <div class="option-text">
+                    <div class="option-title">
+                      Chia sẻ màn hình
+                    </div>
+                    <div class="option-description">
+                      Khi tính năng này tắt, chỉ những người tổ chức mới có thể chia sẻ màn hình của họ
+                    </div>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div class="option-item">
+                  <div class="option-text">
+                    <div class="option-title">
+                      Gửi tin nhắn trò chuyện
+                    </div>
+                    <div class="option-description">
+                      Khi tính năng này tắt, chỉ những người tổ chức mới có thể gửi tin nhắn trò chuyện
+                    </div>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Bộ điều khiển của người tổ chức - END -->
+
+    </div>
+  </div>
+  <!-- Settings modal - END -->
+
+  <!-- Subtitle modal - START -->
+  <div class="subtitle-modal hide">
+    <div class="subtitle-modal-container">
+      <div class="subtitle-modal-header">
+        <div class="subtitle-modal-title">Phụ đề</div>
+        <div class="subtitle-modal-description">
+          Chọn ngôn ngữ mà mọi người sẽ sử dụng trong các cuộc họp của bạn. Phụ đề sẽ hiển thị bằng ngôn ngữ đó trong
+          tất cả các cuộc họp của bạn trên thiết bị này.
+        </div>
+      </div>
+      <div class="subtitle-modal-body">
+        <div class="subtitle-selected">
+          <input type="radio" name="language-subtitle" id="">
+          <span class="subtitle-selected-text">Tắt</span>
+        </div>
+        <div class="subtitle-selected">
+          <input type="radio" name="language-subtitle" id="">
+          <span class="subtitle-selected-text">Tiếng Anh</span>
+        </div>
+        <div class="subtitle-selected">
+          <input type="radio" name="language-subtitle" id="">
+          <span class="subtitle-selected-text">Tiếng Bồ Đào Nha (Brazil)</span>
+        </div>
+        <div class="subtitle-selected">
+          <input type="radio" name="language-subtitle" id="">
+          <span class="subtitle-selected-text">Tiếng Đức</span>
+        </div>
+        <div class="subtitle-selected">
+          <input type="radio" name="language-subtitle" id="">
+          <span class="subtitle-selected-text">Tiếng Pháp</span>
+        </div>
+        <div class="subtitle-selected">
+          <input type="radio" name="language-subtitle" id="">
+          <span class="subtitle-selected-text">Tiếng Tây Ban Nha (Mexico)</span>
+        </div>
+        <div class="subtitle-selected">
+          <input type="radio" name="language-subtitle" id="">
+          <span class="subtitle-selected-text">Tiếng Tây Ban Nha (Tây Ban Nha)</span>
+        </div>
+      </div>
+      <div class="subtitle-modal-footer">
+        <button class="subtitle-close-btn">Hủy</button>
+        <button>Áp dụng</button>
+      </div>
+    </div>
+  </div>
+  <!-- Subtitle modal - END -->
+
+  <!-- Change layout modal - START -->
+  <div class="layout-modal hide">
+    <div class="layout-modal-container">
+      <div class="layout-modal-header">
+        <div class="layout-modal-title">Thay đổi bố cục</div>
+        <span class="material-icons layout-modal-close-btn">
+          close
+        </span>
+      </div>
+      <div class="layout-modal-description">
+        Đã lưu lựa chọn cho các cuộc thoại về sau
+      </div>
+      <div class="layout-selected">
+        <div class="selected-item">
+          <div class="selected-item-input">
+            <input type="radio" name="layout-selected" id="">
+            <span class="selected-text">Tự động</span>
+          </div>
+          <div class="selected-image">
+            <img src="https://www.gstatic.com/meet/layout_v2_auto_15261ecf650af47ac36e1e363de932c3.svg" alt="">
+          </div>
+        </div>
+        <div class="selected-item">
+          <div class="selected-item-input">
+            <input type="radio" name="layout-selected" id="">
+            <span class="selected-text">Xếp kề</span>
+          </div>
+          <div class="selected-image">
+            <img src="https://www.gstatic.com/meet/layout_v2_tiled_b81dc04cf1f16260f8dc9b727c03a14e.svg" alt="">
+          </div>
+        </div>
+        <div class="selected-item">
+          <div class="selected-item-input">
+            <input type="radio" name="layout-selected" id="">
+            <span class="selected-text">Tiêu điểm</span>
+          </div>
+          <div class="selected-image">
+            <img src="https://www.gstatic.com/meet/layout_v2_fullscreen_9175b2e94ac960de3a29a4c5e4c32ab6.svg" alt="">
+          </div>
+        </div>
+        <div class="selected-item">
+          <div class="selected-item-input">
+            <input type="radio" name="layout-selected" id="">
+            <span class="selected-text">Thanh bên</span>
+          </div>
+          <div class="selected-image">
+            <img src="https://www.gstatic.com/meet/layout_v2_sidebar_8dea1e0cfa750f5b3dc5b666daf8178d.svg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="layout-cell">
+        <h2 class="layout-cell-title">
+          Số ô
+        </h2>
+        <h3 class="layout-cell-description">
+          Số ô tối đa được hiển thị, tùy vào kích thước cửa sổ.
+        </h3>
+        <h3 class="layout-cell-description">
+          Lựa chọn không được lưu cho các cuộc họp về sau.
+        </h3>
+      </div>
+    </div>
+  </div>
+  <!-- Change layout modal - END -->
+
+  <!-- Info modal - START -->
+  <div class="info-modal">
+    <div class="info-modal-container">
+
+      <div class="info-modal-header">
+        <span class="info-modal-header-title">Cuộc họp đã sẵn sàng</span>
+        <span class="material-icons info-modal-close-btn">close</span>
+      </div>
+
+      <div class="info-modal-body">
+        <div class="info-modal-body-add">
+          <button class="info-modal-add-btn">
+            <span class="material-icons">
+              person_add_alt_1
+            </span>
+            <span class="text">Thêm người khác</span>
+          </button>
+        </div>
+
+        <div class="info-modal-body-description">
+          <span>
+            Hoặc chia sẻ đường liên kết của cuộc họp này với những người mà bạn
+            muốn họ tham gia vào cuộc họp
+          </span>
+        </div>
+
+        <div class="info-modal-body-url">
+          <span class="info-modal-body-url-text">meet.google.com/ayu-uuco-jwx</span>
+          <button>
+            <span class="material-icons info-modal-copy-btn">
+              content_copy
+            </span>
+          </button>
+        </div>
+
+        <div class="info-modal-body-permission">
+          <div>
+            <img src="https://www.gstatic.com/meet/security_shield_with_background_2f8144e462c57b3e56354926e0cda615.svg"
+              alt="">
+          </div>
+          <span>
+            Những người sử dụng đường liên kết đến cuộc họp này phải được bạn cho phép thì mới có thể tham gia.
+          </span>
+        </div>
+
+        <div class="info-modal-body-end">
+          <span class="">
+            Tham gia bằng nhat.truongdn98@gmail.com
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Info modal - END -->
+  <div class="container">
+
+    <main>
+
+      <div class="main">
+        <div class="main-video">
+          <div class="main-micro">
+            <span class="material-icons main-micro-on">
+              mic
+            </span>
+            <span class="material-icons main-micro-off hide">
+              mic_off
+            </span>
+          </div>
+          <div class="">
+            <img class="main-avatar"
+              src="https://lh3.googleusercontent.com/a-/AOh14Gjtz2jXIRbZ7GsbSPEhnqhEQIpBTgFtOVF5h0W7NA=s160-p-k-no-mo"
+              alt="">
+          </div>
+        </div>
+
+        <!-- Information - START -->
+        <div class="main-aside hide">
+          <div class="main-aside-header">
+            <div class="main-aside-header-title">
+              <span>Chi tiết về cuộc họp</span>
+              <button>
+                <span class="material-icons">close</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="main-aside-info">
+            <div class="main-aside-info-text">Thông tin về cách tham gia</div>
+            <div class="main-aside-info-url">https://meet.google.com/rzq-iidw-uzt</div>
+            <button class="main-aside-info-copy">
+              <span class="material-icons" style="font-size: 1.125rem;">
+                content_copy
+              </span>
+              <span>Sao chép thông tin về cách tham gia</span>
+            </button>
+          </div>
+          <hr>
+          <div class="main-aside-info-more">
+            Số tệp đính kèm trong Lịch Google sẽ hiển thị ở đây
+          </div>
+        </div>
+        <!-- Infomation - END -->
+
+        <!-- Group - START -->
+        <div class="main-aside main-aside-group-js hide">
+          <div class="main-aside-header">
+            <div class="main-aside-header-title">
+              <span>Mọi người</span>
+              <button>
+                <span class="material-icons">close</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="main-aside-group">
+            <div class="main-aside-group-functionalities">
+              <button>
+                <span class="material-icons mic">
+                  mic_off
+                </span>
+                Đã tắt tiếng của tất cả
+              </button>
+              <button>
+                <span class="material-icons add">
+                  person_add_alt_1
+                </span>
+                <div>Thêm người</div>
+              </button>
+              <button>
+                <span class="material-icons switch">
+                  toggle_on
+                </span>
+                <div>Bộ điều khiển của tổ chức</div>
+              </button>
+            </div>
+            <div class="main-aside-group-search">
+              <span class="material-icons">
+                search
+              </span>
+              <input type="text" name="" id="" placeholder="Tìm kiếm người">
+            </div>
+            <div class="main-aside-group-list">
+              <div class="title">Trong cuộc gọi</div>
+              <div class="list-item">
+                <div class="list-item-avatar">
+                  <img
+                    src="https://lh3.googleusercontent.com/a-/AOh14Gjtz2jXIRbZ7GsbSPEhnqhEQIpBTgFtOVF5h0W7NA=s192-c-mo"
+                    alt="">
+                </div>
+                <div class="list-item-detail">
+                  <div class="list-item-name">
+                    Nguyễn Văn A
+                  </div>
+                  <div class="list-item-description">
+                    Người tổ chức cuộc họp
+                  </div>
+                </div>
+                <div class="list-item-tools">
+                  <button class="mic-btn">
+                    <span class="material-icons">
+                      mic_off
+                    </span>
+                  </button>
+                  <button class="pin-btn">
+                    <span class="material-icons">
+                      push_pin
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Group - END -->
+        </div>
+
+        <!-- Chat - START -->
+        <div class="main-aside main-aside-chat-js hide">
+          <div class="main-aside-header">
+            <div class="main-aside-header-title">
+              <span>Tin nhắn trong cuộc gọi</span>
+              <button>
+                <span class="material-icons">close</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="main-aside-chat">
+
+            <div class="main-aside-chat-toggle">
+              <div>Cho phép mọi người nhắn tin</div>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+            </div>
+
+            <div class="main-aside-chat-notification">
+              <div class="main-aside-notification-text">
+                Tin nhắn sẽ chỉ hiển thị với những người tham gia cuộc gọi và sẽ bị xóa khi cuộc gọi kết thúc.
+              </div>
+            </div>
+
+            <div class="main-aside-chat-list">
+              <div class="main-aside-chat-input">
+                <input placeholder="Gửi tin nhắn cho mọi người">
+              </div>
+              <span class="material-icons">
+                send
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Chat - END -->
+
+        <!-- Activities - START -->
+        <div class="main-aside main-aside-activities-js hide">
+          <div class="activities-content ">
+            <div class="main-aside-header">
+              <div class="main-aside-header-title">
+                <span>Hoạt động</span>
+                <button>
+                  <span class="material-icons">close</span>
+                </button>
+              </div>
+            </div>
+            <div class="main-aside-activities activities-btn">
+              <div class="main-aside-activities-img">
+                <img
+                  src="https://www.gstatic.com/meet/google-meet-icons_whiteboard-icon_44ebb90da0e177ad2a47be47dccc81ae.svg"
+                  alt="">
+              </div>
+              <div class="main-aside-activities-detail">
+                <div class="activities-name">
+                  Bảng trắng
+                </div>
+                <div class="activities-description">
+                  Cùng nhau động não và phát thảo ý tưởng
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- White board - START -->
+          <div class="whiteboard-content hide">
+            <div class="main-aside-header">
+              <div class="main-aside-header-title">
+                <div class="header-backward">
+                  <button class="whiteboard-backward-btn">
+                    <span class="material-icons">
+                      arrow_back
+                    </span>
+                  </button>
+                  <span>Bảng trắng</span>
+                </div>
+                <button>
+                  <span class="material-icons">close</span>
+                </button>
+              </div>
+            </div>
+            <div class="main-aside-whiteboard">
+              <div class="whiteboard-img">
+                <img src="https://www.gstatic.com/meet/panels_whiteboard-panel_2ffca003a41aa06b3c90fe3533c5c23c.svg"
+                  alt="">
+              </div>
+              <div class="whiteboard-title">
+                Cùng nhau phát triển ý tưởng
+              </div>
+              <div class="whiteboard-description">
+                Sử dụng Jamboard để thể hiện ý tưởng của bạn bằng hình ảnh trên bảng trắng ảo. Mọi người trong cuộc gọi
+                sẽ
+                nhận được đường liên kết đến Jam.
+              </div>
+              <div class="whiteboard-btns">
+                <div class="whiteboard-btn">
+                  <button>
+                    <span class="material-icons">
+                      border_color
+                    </span>
+                    Bắt đầu bảng trắng mới
+                  </button>
+                </div>
+                <div class="whiteboard-btn">
+                  <button>
+                    <span class="material-icons">
+                      add_to_drive
+                    </span>
+                    Chọn từ drive
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- White board - END -->
+
+        </div>
+        <!-- Activities - END -->
+
+        <!-- Secure - START -->
+        <div class="main-aside main-aside-secure-js hide">
+          <div class="main-aside-header">
+            <div class="main-aside-header-title">
+              <span>An toàn cuộc họp</span>
+              <button>
+                <span class="material-icons">close</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="main-aside-chat">
+
+            <div class="main-aside-chat-toggle">
+              <div>Cho phép mọi người nhắn tin</div>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+            </div>
+
+            <div class="main-aside-chat-notification">
+              <div class="main-aside-notification-text">
+                Tin nhắn sẽ chỉ hiển thị với những người tham gia cuộc gọi và sẽ bị xóa khi cuộc gọi kết thúc.
+              </div>
+            </div>
+
+            <div class="main-aside-chat-list">
+              <div class="main-aside-chat-input">
+                <input placeholder="Gửi tin nhắn cho mọi người">
+              </div>
+              <span class="material-icons">
+                send
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Secure - END -->
+    </main>
+
+    <div class="you">
+      <span>Bạn</span>
+    </div>
+    <footer>
+      <div class="footer-info">
+        <div class="footer-info-time">
+          09:33
+        </div>
+        <div class="footer-info-id">
+          rzq-iidw-uzt
+        </div>
+      </div>
+
+      <div class="footer-info-functionality">
+
+
+
+        <div class="options-modal hide">
+          <div options-modal-top>
+            <div class="options-item">
+              <span class="material-icons options-item-icon">
+                border_color
+              </span>
+              <div class="options-item-text">
+                <div class="option-item-text-title">Bảng trắng</div>
+                <div class="options-item-text-description">Mở Jam</div>
+              </div>
+            </div>
+            <div class="options-item change-layout-js">
+              <span class="material-icons options-item-icon">
+                dashboard
+              </span>
+              <div class="options-item-text">
+                <div class="option-item-text-title">Thay đổi bố cục</div>
+              </div>
+            </div>
+            <div class="options-item">
+              <span class="material-icons options-item-icon">
+                fullscreen
+              </span>
+              <div class="options-item-text">
+                <div class="option-item-text-title">Toàn màn hình</div>
+              </div>
+            </div>
+            <div class="options-item">
+              <span class="material-icons options-item-icon">
+                person
+              </span>
+              <div class="options-item-text">
+                <div class="option-item-text-title">Thay đổi nền</div>
+              </div>
+            </div>
+            <div class="options-item change-subtitle-js">
+              <span class="material-icons options-item-icon">
+                closed_caption
+              </span>
+              <div class="options-item-text ">
+                <div class="option-item-text-title">Phụ đề</div>
+                <div class="options-item-text-description">Tắt</div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div options-modal-bottom>
+            <div class="options-item report-problem-btn">
+              <span class="material-icons options-item-icon">
+                feedback
+              </span>
+              <div class="options-item-text">
+                <div class="option-item-text-title">Báo cáo sự cố</div>
+              </div>
+            </div>
+            <div class="options-item">
+              <span class="material-icons options-item-icon">
+                report_gmailerrorred
+              </span>
+              <div class="options-item-text">
+                <div class="option-item-text-title">Báo cáo vi phạm</div>
+              </div>
+            </div>
+            <div class="options-item">
+              <span class="material-icons options-item-icon">
+                youtube_searched_for
+              </span>
+              <div class="options-item-text">
+                <div class="option-item-text-title">Khắc phục sự cố và trợ giúp</div>
+              </div>
+            </div>
+            <div class="options-item settings-js">
+              <span class="material-icons options-item-icon">
+                settings
+              </span>
+              <div class="options-item-text">
+                <div class="option-item-text-title">Cài đặt</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="rounded-btn disable-btn micro-btn-footer">
+          <span class="material-icons micro-enable-footer hide">
+            mic
+          </span>
+          <span class="material-icons micro-disable-footer">
+            mic_off
+          </span>
+        </button>
+        <button class="rounded-btn disable-btn video-btn-footer">
+          <span class="material-icons hide video-enable-footer">
+            videocam
+          </span>
+          <span class="material-icons video-disable-footer">
+            videocam_off
+          </span>
+
+        </button>
+        <button class="rounded-btn enable">
+          <span class="material-icons ">
+            present_to_all
+          </span>
+        </button>
+        <button class="rounded-btn footer-options-btn">
+          <span class="material-icons ">
+            more_vert
+          </span>
+        </button>
+        <button class="rounded-btn enable call-end-btn disable-btn">
+          <span class="material-icons ">
+            call_end
+          </span>
+        </button>
+      </div>
+
+      <div class="footer-info-gadgets">
+        <button class="footer-info-btn">
+          <span class="material-icons">
+            info
+          </span>
+        </button>
+        <button class="footer-group-btn">
+          <span class="material-icons">
+            group
+          </span>
+        </button>
+        <button class="footer-chat-btn">
+          <span class="material-icons">
+            chat
+          </span>
+        </button>
+        <button class="footer-activities-btn">
+          <span class="material-icons">
+            view_quilt
+          </span>
+        </button>
+        <button class="footer-secure-btn">
+          <img src="https://www.gstatic.com/meet/host_dark_default_24px_a31fe7075f38ed304f0d56353393c9d2.svg" alt="">
+        </button>
+      </div>
+    </footer>
+  </div>
+</body>
+<script src="./call.js"></script>
+
+</html>
